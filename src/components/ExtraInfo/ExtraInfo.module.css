@@ -1,0 +1,77 @@
+.coins-container{
+  width:50% ;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.general-container{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.general-wrapper{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sidebar{
+  width:450px;
+  display: flex;
+  color: white;
+  border: 1px solid transparent;
+  border-right-color: white;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.coin-wrapper{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+.coin-name{
+  font-family: Montserrat;
+font-size: 48px;
+font-weight: 700;
+line-height: 56.02px;
+text-align: left;
+
+}
+.description{
+  font-family: Montserrat;
+font-size: 16px;
+font-weight: 400;
+line-height: 28px;
+letter-spacing: 0.15000000596046448px;
+text-align: left;
+
+}
+.sidebar img{
+  width: 200px;
+  height: 200px;
+}
+
+.info{
+  display: flex;
+  gap: 20px;
+  justify-content: left;
+  flex-direction: column;
+
+  font-family: Montserrat;
+font-size: 22px;
+font-weight: 700;
+line-height: 32.02px;
+text-align: left;
+
+}
+
+.info span{
+font-size: 15px;
+font-weight: 400;
+line-height: 32.02px;
+text-align: left;
+
+}
+

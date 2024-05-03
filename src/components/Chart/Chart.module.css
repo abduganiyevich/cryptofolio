@@ -1,0 +1,53 @@
+.chartContainer {
+  max-width:40;
+  height: 80vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.error {
+  color: red;
+  font-size: 20px;
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+
+.selectContainer button{
+    width:200px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    border-color: #87CEEB;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 19.5px;
+        text-align: left;
+
+    cursor: pointer;
+    text-align: left;
+}
+
+.selectContainer button.selected{
+    background-color: #87CEEB;
+    color: #000;
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,71 @@
+.slider-wrap {
+  background-image: url(../../assets/folio.jfif);
+  width: 100%;
+  height: 400px;
+  padding: 34px 20px 0; 
+  box-sizing: border-box; 
+}
+
+.slider-title {
+  font-size: 36px; 
+  font-weight: 700;
+  line-height: 1.2; 
+  text-align: center;
+  color: rgba(135, 206, 235, 1);
+  margin-bottom: 10px; 
+}
+
+.slider-wrap p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5; 
+  text-align: center;
+  color: rgba(169, 169, 169, 1);
+  margin-bottom: 20px; 
+}
+
+.slider-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  padding: 20px; 
+  border-radius: 8px;
+}
+
+.slider-item p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2; 
+  text-align: center;
+  margin: 10px 0; 
+}
+
+.slider-item span {
+  font-size: 15px; 
+  font-weight: 500;
+  line-height: 1.2; 
+  color: rgba(14, 203, 129, 1);
+}
+
+.slider-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px; 
+  border-radius: 50%; 
+}
+
+.slider-item p.crypto-price {
+  font-size: 18px; 
+  font-weight: 500;
+  line-height: 1.2; 
+  color:#FFF;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding-top: 20px; 
+}
+
