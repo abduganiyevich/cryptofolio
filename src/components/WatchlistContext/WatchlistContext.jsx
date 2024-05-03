@@ -6,7 +6,13 @@ export const useWatchlist = () => useContext(WatchlistContext);
 
 export const WatchlistProvider = ({ children }) => {
   const [watchlist, setWatchlist] = useState(() => JSON.parse(localStorage.getItem('watchlist')) || []);
-  const [selectedCurrency, setSelectedCurrency] = useState('USD'); 
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const [symbol, setSymbol] = useState('$');
+   useEffect(() => {
+        if (selectedCurrency === 'USD') setSymbol('$');
+        if (selectedCurrency === 'GBP') setSymbol('£');
+        if (selectedCurrency === 'EUR') setSymbol('€');
+    }, [selectedCurrency]) 
 
   useEffect(() => {
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
@@ -24,7 +30,7 @@ export const WatchlistProvider = ({ children }) => {
   };
 
   return (
-    <WatchlistContext.Provider value={{ watchlist, updateWatchlist, selectedCurrency, setSelectedCurrency }}>
+    <WatchlistContext.Provider value={{ watchlist, updateWatchlist, selectedCurrency, setSelectedCurrency,symbol,setSymbol }}>
       {children}
     </WatchlistContext.Provider>
   );

@@ -3,12 +3,12 @@ import Header from "../Header/Header";
 import { useParams } from "react-router-dom";
 import Chart from "../Chart/Chart";
 import style from '../ExtraInfo/ExtraInfo.module.css';
-
+import { useWatchlist, WatchlistContext } from "../WatchlistContext/WatchlistContext";
 function ExtraInfo() {
   const { id } = useParams();
   const [coin, setCoin] = useState(null);
-  const [currency, setCurrency] = useState('USD');
-
+  const{symbol,selectedCurrency}=useWatchlist();
+  const [currency, setCurrency] = useState(selectedCurrency.toLowerCase());
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -47,10 +47,10 @@ function ExtraInfo() {
                 <h5>Rank: &nbsp;  <span>{coin?.market_cap_rank}</span></h5>
               </div>
               <div className={style["info-item"]}>
-                <h5>Current Price:&nbsp; <span>{numberWithCommas(coin?.market_data.current_price[currency.toLowerCase()])} {currency}</span></h5>
+                <h5>Current Price:&nbsp; <span>{symbol}&nbsp;{numberWithCommas(coin?.market_data.current_price[currency.toLowerCase()])} </span></h5>
               </div>
               <div className={style["info-item"]}>
-                <h5>Market Cap:  &nbsp;<span>{numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6))}M {currency}</span></h5>
+                <h5>Market Cap:  &nbsp;<span>{symbol}&nbsp;{numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6))}M</span></h5>
               </div>
             </div>
           </div>

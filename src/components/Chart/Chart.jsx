@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { useWatchlist, WatchlistContext } from "../WatchlistContext/WatchlistContext";
 import { ThreeDots } from 'react-loading-icons';
 import styles from '../Chart/Chart.module.css'; 
-
 function Chart({ coin }) {
     const [historicalData, setHistoricalData] = useState();
     const [days, setDays] = useState(1);
+    const {selectedCurrency}=useWatchlist();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [currency, setCurrency] = useState("usd");
+    const [currency, setCurrency] = useState(selectedCurrency.toLowerCase());
 
     const chartDays = [
         {

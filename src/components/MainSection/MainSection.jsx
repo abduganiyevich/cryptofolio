@@ -8,7 +8,7 @@ import next from '../../assets/next.png';
 import { ThreeDots } from 'react-loading-icons';
 
 function MainSection() {
-  const { watchlist, updateWatchlist, selectedCurrency } = useWatchlist();
+  const { watchlist, updateWatchlist, selectedCurrency,symbol } = useWatchlist();
   const [cryptos, setCryptos] = useState([]);
   const [filteredCryptos, setFilteredCryptos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -131,7 +131,7 @@ function MainSection() {
                         </div>
                       </div>
                     </td>
-                    <td>${crypto.current_price}</td>
+                    <td>{symbol} {crypto.current_price}</td>
                     <td>
                       <IoEyeSharp
                         className={style['crypto-eyes']}
@@ -139,7 +139,7 @@ function MainSection() {
                       />
                       <span>{crypto.price_change_percentage_24h.toFixed(2)}%</span>
                     </td>
-                    <td>${crypto.market_cap}</td>
+                    <td>{symbol} {crypto.market_cap}</td>
                   </tr>
                 ))}
               </tbody>

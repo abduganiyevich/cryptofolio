@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import { useWatchlist } from '../WatchlistContext/WatchlistContext';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import style from '../Slider/Slide.module.css';
@@ -7,7 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 function CryptoCarousel() {
   const [cryptos, setCryptos] = useState([]);
-const navigate=useNavigate();
+  const { symbol } = useWatchlist();
+  const navigate = useNavigate();
   useEffect(() => {
     fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h')
       .then(response => response.json())
@@ -22,7 +24,7 @@ const navigate=useNavigate();
         setCryptos(updatedCryptos);
       })
       .catch(error => {
-        console.error('Ma\'lumotlar olishda xatolik:', error);
+        console.error("Ma'lumotlar olishda xatolik:", error);
       });
   }, []);
 
@@ -49,17 +51,17 @@ const navigate=useNavigate();
         </div>
 
         <div style={{ margin: '0 auto' }}>
-        <Slider {...settings} arrows={false}>
-  {cryptos.map(crypto => (
-    <div className={style['slider-item']} key={crypto.id}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor:'pointer'}} onClick={() => handleClick(crypto)} >
-        <img src={crypto.image} alt={crypto.name} />
-        <p>{crypto.symbol.toUpperCase()} <span style={{ color: crypto.color }}>+{crypto.price_change_percentage_24h.toFixed(2)}%</span></p>
-        <p className={style['crypto-price']}>${crypto.current_price}</p>
-      </div>
-    </div>
-  ))}
-</Slider>
+          <Slider {...settings} arrows={false}>
+            {cryptos.map(crypto => (
+              <div className={style['slider-item']} key={crypto.id}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor: 'pointer' }} onClick={() => handleClick(crypto)} >
+                  <img src={crypto.image} alt={crypto.name} />
+                  <p>{crypto.symbol.toUpperCase()} <span style={{ color: crypto.color }}>+{crypto.price_change_percentage_24h.toFixed(2)}%</span></p>
+                  <p className={style['crypto-price']}>{symbol}&nbsp;{crypto.current_price}</p>
+                </div>
+              </div>
+            ))}
+          </Slider>
 
         </div>
       </div>
