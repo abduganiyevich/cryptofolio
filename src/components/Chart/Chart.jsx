@@ -4,6 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { useWatchlist, WatchlistContext } from "../WatchlistContext/WatchlistContext";
 import { ThreeDots } from 'react-loading-icons';
 import styles from '../Chart/Chart.module.css'; 
+import errorImage from '../../assets/file.png'
 function Chart({ coin }) {
     const [historicalData, setHistoricalData] = useState();
     const [days, setDays] = useState(1);
@@ -70,7 +71,10 @@ function Chart({ coin }) {
                 aria-label="three-dots-loading" 
               /></div>
             ) : error ? (
-                <div className={styles.error}>{error.message}</div>
+                <div className={styles.error}>
+                    {error.message}
+                <img src={errorImage} alt=""  width={400} />
+                </div>
             ) : (
                 <>
                     <Line
